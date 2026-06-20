@@ -5,19 +5,19 @@ import { useAuthStore } from "@/store/authStore";
 // API base configuration
 const getBaseURL = () => {
   const savedIP = localStorage.getItem("server_ip")?.trim();
-  
+
   // IP manzil formatini tekshirish (masalan: 192.168.1.1)
   const ipRegex = /^(\d{1,3}\.){3}\d{1,3}$/;
-  
+
   if (savedIP && ipRegex.test(savedIP)) {
     return `http://${savedIP}:5000/api`;
   }
-  
+
   // Agar kiritilgan IP noto'g'ri bo'lsa va bu localhost bo'lmasa, ogohlantirish
   if (savedIP && savedIP !== 'localhost' && !ipRegex.test(savedIP)) {
     console.error("Noto'g'ri IP manzil formati saqlangan:", savedIP);
   }
-  
+
   return import.meta.env.VITE_API_URL || "/api";
 };
 
@@ -29,6 +29,7 @@ const api: AxiosInstance = axios.create({
   timeout: 5000, // Timeoutni qisqartiramiz (5 soniya)
   headers: {
     "Content-Type": "application/json",
+    "ngrok-skip-browser-warning": "true",
   },
 });
 
@@ -135,7 +136,7 @@ api.interceptors.response.use(
       console.warn("Network Error suppressed to prevent loop");
     } else {
       const errorMessage = error.response?.data?.message || error.message || "An error occurred";
-      
+
       if (error.response?.status !== 401 && error.response?.status !== 404 && error.response?.status !== 403) {
         if (currentTime - lastErrorTime > ERROR_COOLDOWN) {
           message?.error(errorMessage);
