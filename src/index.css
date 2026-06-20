@@ -1,0 +1,389 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  html {
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  }
+}
+
+/* Custom utility styles */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Ant Design overrides */
+.ant-layout {
+  background: #f5f5f5 !important;
+}
+
+.ant-layout-sider {
+  background: linear-gradient(180deg, #001529 0%, #00203d 100%) !important;
+}
+
+.ant-menu-dark {
+  background: transparent !important;
+}
+
+/* Sidebar Menu Styles */
+.sidebar-menu .ant-menu-item-group-title {
+  padding: 16px 16px 8px 16px !important;
+  font-size: 10px !important;
+  letter-spacing: 0.5px !important;
+  color: rgba(255, 255, 255, 0.45) !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+}
+
+.sidebar-menu .ant-menu-item {
+  margin: 2px 8px !important;
+  border-radius: 8px !important;
+  height: 42px !important;
+  line-height: 42px !important;
+  transition: all 0.2s ease !important;
+}
+
+.sidebar-menu .ant-menu-submenu-title {
+  margin: 2px 8px !important;
+  border-radius: 8px !important;
+  height: 42px !important;
+  line-height: 42px !important;
+  transition: all 0.2s ease !important;
+}
+
+.sidebar-menu .ant-menu-item:hover,
+.sidebar-menu .ant-menu-submenu-title:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.sidebar-menu .ant-menu-item-selected {
+  background: linear-gradient(
+    90deg,
+    rgba(24, 144, 255, 0.3) 0%,
+    rgba(24, 144, 255, 0.1) 100%
+  ) !important;
+  border-left: 3px solid #1890ff !important;
+}
+
+.sidebar-menu .ant-menu-item-selected::after {
+  display: none !important;
+}
+
+.sidebar-menu .ant-menu-sub {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border-radius: 8px !important;
+  margin: 4px 8px !important;
+  padding: 4px 0 !important;
+}
+
+.sidebar-menu .ant-menu-sub .ant-menu-item {
+  margin: 2px 4px !important;
+  padding-left: 40px !important;
+  height: 36px !important;
+  line-height: 36px !important;
+  font-size: 13px !important;
+}
+
+.sidebar-menu .ant-menu-submenu-arrow {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.sidebar-menu .ant-menu-submenu-open > .ant-menu-submenu-title {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Scrollbar for sidebar */
+.sidebar-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ant-card {
+  border-radius: 8px !important;
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+.ant-table {
+  border-radius: 8px !important;
+}
+
+.ant-table-thead > tr > th {
+  background: #fafafa !important;
+  font-weight: 600 !important;
+}
+
+/* Excel-like spreadsheet styling */
+.cashflow-spreadsheet {
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  overflow: auto;
+}
+
+.cashflow-spreadsheet .Spreadsheet__table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 860px;
+}
+
+.cashflow-spreadsheet .Spreadsheet__header {
+  background: #f3f3f3;
+  color: #333333;
+  font-weight: 600;
+  border: 1px solid #d9d9d9;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 15px;
+}
+
+.cashflow-spreadsheet tr > th.Spreadsheet__header:first-child {
+  width: 48px;
+  min-width: 48px;
+  max-width: 48px;
+  text-align: center;
+  padding: 10px 4px;
+}
+
+.cashflow-spreadsheet .Spreadsheet__header--selected {
+  background: #e8f0ff;
+}
+
+.cashflow-spreadsheet .Spreadsheet__cell {
+  border: 1px solid #d9d9d9;
+  min-width: 120px;
+  height: 48px;
+  padding: 0;
+}
+
+.cashflow-spreadsheet .Spreadsheet__data-viewer {
+  padding: 0 12px;
+  font-family: "Calibri", "Segoe UI", sans-serif;
+  font-size: 15px;
+  color: #222222;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.cashflow-spreadsheet .Spreadsheet__data-editor {
+  padding: 0 4px;
+}
+
+.cashflow-spreadsheet .Spreadsheet__data-editor input {
+  height: 48px;
+  font-family: "Calibri", "Segoe UI", sans-serif;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.cashflow-spreadsheet .Spreadsheet__active-cell--view,
+.cashflow-spreadsheet .Spreadsheet__active-cell--edit {
+  outline: 2px solid #4f8ef7;
+  outline-offset: -2px;
+}
+
+.cashflow-spreadsheet .Spreadsheet__floating-rect {
+  border: 1px dashed #4f8ef7;
+}
+
+.cashflow-date-editor .ant-picker {
+  width: 100%;
+}
+
+.cashflow-account-editor .ant-select {
+  width: 100%;
+}
+
+.cashflow-category-editor .ant-select-auto-complete {
+  width: 100%;
+}
+
+.cashflow-category-editor .ant-select-dropdown {
+  min-width: 200px !important;
+}
+
+.accounts-table {
+  width: auto;
+  table-layout: auto;
+  display: inline-table;
+}
+
+.batches-table .ant-table-thead > tr > th {
+  font-size: 12px !important;
+  padding: 8px 8px !important;
+}
+
+.batches-table .ant-table-tbody > tr > td {
+  font-size: 12px !important;
+  padding: 8px 8px !important;
+}
+
+.cashflow-spreadsheet .Spreadsheet__table col:nth-child(1) {
+  width: 48px;
+} /* # raqam */
+.cashflow-spreadsheet .Spreadsheet__table col:nth-child(2) {
+  width: 160px;
+} /* Sana */
+.cashflow-spreadsheet .Spreadsheet__table col:nth-child(3) {
+  width: 160px;
+} /* Kategoriya */
+.cashflow-spreadsheet .Spreadsheet__table col:nth-child(4) {
+  width: 280px;
+} /* Izoh — keng */
+.cashflow-spreadsheet .Spreadsheet__table col:nth-child(5) {
+  width: 100px;
+} /* Kirim */
+.cashflow-spreadsheet .Spreadsheet__table col:nth-child(6) {
+  width: 100px;
+} /* Chiqim */
+.cashflow-spreadsheet .Spreadsheet__table col:nth-child(7) {
+  width: 130px;
+}
+
+/* Client Debt Specific Styles */
+.client-debt-spreadsheet .Spreadsheet__table {
+  table-layout: fixed !important;
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+.client-debt-spreadsheet .Spreadsheet__table col:nth-child(1) {
+  width: 45px !important;
+} /* # */
+.client-debt-spreadsheet .Spreadsheet__table col:nth-child(2) {
+  width: 140px !important;
+} /* Sana */
+.client-debt-spreadsheet .Spreadsheet__table col:nth-child(3) {
+  width: auto !important;
+} /* Izoh - qolgan joyni oladi */
+.client-debt-spreadsheet .Spreadsheet__table col:nth-child(n + 4) {
+  width: 110px !important;
+} /* Oldi, Berdi, Hisob, Kurs, Qoldiq */
+
+.cell-oldi {
+  background-color: #fee2e2 !important;
+} /* bg-red-100 */
+.cell-berdi {
+  background-color: #dcfce7 !important;
+} /* bg-green-100 */
+.cell-edited-gr {
+  background-color: #d9ff9f !important;
+}
+.cell-edited-rd {
+  background-color: #fef9c3 !important;
+}
+.cell-edited {
+  background-color: #fef9c3 !important;
+}
+
+/* Print styles for invoices */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .cashflow-print {
+    display: block !important;
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  body {
+    background: white !important;
+  }
+
+  .ant-layout {
+    background: white !important;
+  }
+}
+
+.cashflow-print {
+  position: fixed;
+  left: -10000px;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.thin-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+.thin-scroll::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
